@@ -26,7 +26,7 @@ int	check_input(char **argv)
 		num = ft_atol(argv[i]);
 		if (num < INT_MIN || num > INT_MAX)
 			return (0);
-		if (!ft_isdup(argv, num, i))
+		if (ft_isdup(argv, num, i))
 			return (0);
 		i++;
 	}
@@ -61,10 +61,10 @@ int	ft_isdup(char **argv, int num, int elements)
 	while (i < elements)
 	{
 		if (num == ft_atol(argv[i]))
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	ft_numelements(t_stack **a)
@@ -80,4 +80,18 @@ int	ft_numelements(t_stack **a)
 		tmp = tmp->next;
 	}
 	return (elements);
+}
+
+int	ft_issorted(t_stack *a)
+{
+	t_stack	*tmp;
+
+	tmp = a;
+	while (tmp->next)
+	{
+		if (tmp->content > tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

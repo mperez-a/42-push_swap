@@ -19,7 +19,7 @@ t_stack	*ft_newlst(int pos, int content)
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
-	node->pos = pos;
+	node->pos = pos - 1;
 	node->content = content;
 	node->next = NULL;
 	return (node);

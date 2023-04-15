@@ -59,7 +59,7 @@ int	ft_find_minor(t_stack **stack_a)
 	{
 		tmp = tmp->next;
 		if (minor <= tmp->content)
-			continue;
+			continue ;
 		minor = tmp->content;
 		pos = tmp->pos;
 	}
@@ -68,31 +68,31 @@ int	ft_find_minor(t_stack **stack_a)
 
 int	ft_find_biggest(t_stack **a)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		biggest;
 	int		pos;
 
 	tmp = *a;
 	biggest = tmp->content;
 	pos = tmp->pos;
-	while(tmp->next)
+	while (tmp->next)
 	{
 		tmp = tmp->next;
 		if (biggest > tmp->content)
-			continue;
+			continue ;
 		biggest = tmp->content;
 		pos = tmp->pos;
 	}
-	return(pos);
+	return (pos);
 }
 
 void	ft_update_position(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		position;
 
 	tmp = *stack;
-	position = 1;
+	position = 0;
 	while (tmp)
 	{
 		tmp->pos = position;
@@ -103,30 +103,28 @@ void	ft_update_position(t_stack **stack)
 
 void	ft_put_index(t_stack **stack)
 {
-	int	min_content;
-	int	index;
+	int		min_content;
+	int		index;
 	t_stack	*current;
 
 	index = 1;
 	while (index <= ft_numelements(stack))
-	{ 
+	{
 		min_content = INT_MAX;
-        current = *stack;
-        while (current)
+		current = *stack;
+		while (current)
 		{
-            if (current->content < min_content && current->index == 0) {
-                min_content = current->content;
-            }
-            current = current->next;
-        }
-        current = *stack;
-        while (current)
+			if (current->content < min_content && current->index == 0)
+				min_content = current->content;
+			current = current->next;
+		}
+		current = *stack;
+		while (current)
 		{
-            if (current->content == min_content && current->index == 0) {
-                current->index = index;
-            }
-            current = current->next;
-        }
-        index++;
+			if (current->content == min_content && current->index == 0)
+				current->index = index;
+			current = current->next;
+		}
+		index++;
 	}
 }

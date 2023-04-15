@@ -56,7 +56,9 @@ void			mostra(t_stack **a);
 void			swap_mov(t_stack **stack);
 void			ss_mov(t_stack **stack_a, t_stack **stack_b);
 void			rotate_mov(t_stack **stack);
+void			rr(t_stack **stack_a, t_stack **stack_b);
 void			reverse_rotate_mov(t_stack **stack);
+void			rrr(t_stack **stack_a, t_stack **stack_b);
 void			push_mov(t_stack **src, t_stack **dst);
 
 //sorts
@@ -65,6 +67,7 @@ void			sort_three(t_stack **stack);
 void			sort_four(t_stack **a, t_stack **b);
 void			sort_five(t_stack **a, t_stack **b);
 void			sort_four_five(t_stack **a, t_stack **b, int elements);
+void			sort_big(t_stack **stack_a, t_stack **stack_b, int total_size);
 
 //exec movements
 void			swap(t_stack **stack, char c);
