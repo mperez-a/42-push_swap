@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:43:54 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/03/24 15:17:42 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:21:03 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 	int				pos;
 	int				index;
 	struct s_stack	*next;
-}				t_stack;
+}					t_stack;
 
 //utils
 void			push_swap(int argc, char **args);
@@ -42,6 +42,9 @@ int				ft_find_minor(t_stack **stack_a);
 int				ft_find_biggest(t_stack **stack_a);
 void			ft_update_position(t_stack **stack);
 void			ft_put_index(t_stack **stack);
+int				ft_find_index_minor(t_stack **stack_a);
+int				ft_find_index_biggest(t_stack **a);
+void			put_min_in_top(t_stack **stack_a);
 
 //lst utils
 t_stack			*ft_newlst(int pos, int content);
@@ -67,7 +70,9 @@ void			sort_three(t_stack **stack);
 void			sort_four(t_stack **a, t_stack **b);
 void			sort_five(t_stack **a, t_stack **b);
 void			sort_four_five(t_stack **a, t_stack **b, int elements);
-void			sort_big(t_stack **stack_a, t_stack **stack_b, int total_size);
+void			sort_big(t_stack **stack_a, t_stack **stack_b, int chunks, int size);
+void 			sort_chunk(t_stack **a, t_stack **b, int chunk_size);
+void			sort_nums(t_stack **stack_a, t_stack **stack_b);
 
 //exec movements
 void			swap(t_stack **stack, char c);
