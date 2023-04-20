@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:59:41 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/18 17:42:13 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:53:06 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ long long int	ft_atol(char *str)
 	return (num * neg);
 }
 
-int	ft_find_minor(t_stack **stack_a)
+int	ft_find_pos_minor(t_stack **stack_a)
 {
 	t_stack	*tmp;
 	int		minor;

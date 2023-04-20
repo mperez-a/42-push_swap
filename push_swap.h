@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:43:54 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/18 18:21:03 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:39:51 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ long long int	ft_atol(char *str);
 //void			ft_error(t_stack stack_a);
 int				ft_isnum(char *str);
 int				ft_isdup(char **args, int num, int elements);
-int				ft_find_minor(t_stack **stack_a);
+int				ft_find_pos_minor(t_stack **stack_a);
 int				ft_find_biggest(t_stack **stack_a);
 void			ft_update_position(t_stack **stack);
 void			ft_put_index(t_stack **stack);
 int				ft_find_index_minor(t_stack **stack_a);
 int				ft_find_index_biggest(t_stack **a);
-void			put_min_in_top(t_stack **stack_a);
+void			put_min_in_top(t_stack **stack_a, int size);
 
 //lst utils
 t_stack			*ft_newlst(int pos, int content);
@@ -72,7 +72,7 @@ void			sort_five(t_stack **a, t_stack **b);
 void			sort_four_five(t_stack **a, t_stack **b, int elements);
 void			sort_big(t_stack **stack_a, t_stack **stack_b, int chunks, int size);
 void 			sort_chunk(t_stack **a, t_stack **b, int chunk_size);
-void			sort_nums(t_stack **stack_a, t_stack **stack_b);
+void			sort_nums(t_stack **stack_a, t_stack **stack_b, int size);
 
 //exec movements
 void			swap(t_stack **stack, char c);

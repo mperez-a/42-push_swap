@@ -6,25 +6,22 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:30:00 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/18 18:20:48 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:52:11 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_nums(t_stack **stack_a, t_stack **stack_b)
+void	sort_nums(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	int len;
-
-	len = ft_numelements(stack_a);
-	if (len > 5 && len <= 20)
-		sort_big(stack_a, stack_b, 2, len);
-	if (len > 20 && len <= 100)
-		sort_big(stack_a, stack_b, 5, len);
-	if (len > 100 && len <= 250)
-		sort_big(stack_a, stack_b, 6, len);
-	if (len > 250 && len <= 500)
-		sort_big(stack_a, stack_b, 7, len);
+	if (size > 5 && size <= 20)
+		sort_big(stack_a, stack_b, 2, size);
+	if (size > 20 && size <= 100)
+		sort_big(stack_a, stack_b, 5, size);
+	if (size > 100 && size <= 250)
+		sort_big(stack_a, stack_b, 6, size);
+	if (size > 250 && size <= 500)
+		sort_big(stack_a, stack_b, 7, size);
 }
 
 int	ft_find_index_minor(t_stack **stack_a)

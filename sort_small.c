@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_few_elements.c                                :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:46:15 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/03/24 17:49:02 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:54:25 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	sort_four(t_stack **a, t_stack **b)
 {
 	if (ft_issorted(*a) && ft_issorted(*b))
 		return ;
-	if (ft_find_minor(a) == 1)
+	if (ft_find_pos_minor(a) == 1)
 		swap(a, 'a');
-	else if (ft_find_minor(a) == 2)
+	else if (ft_find_pos_minor(a) == 2)
 		reverse_rotate(a, 'a');
-	if (ft_find_minor(a) == 3)
+	if (ft_find_pos_minor(a) == 3)
 		reverse_rotate(a, 'a');
 	if (ft_issorted(*a))
 		return ;
@@ -61,20 +61,20 @@ void	sort_five(t_stack **a, t_stack **b)
 {
 	if (ft_issorted(*a) && ft_issorted(*b))
 		return ;
-	if (ft_find_minor(a) == 1)
+	if (ft_find_pos_minor(a) == 1)
 		swap(a, 'a');
-	else if (ft_find_minor(a) == 2)
+	else if (ft_find_pos_minor(a) == 2)
 		reverse_rotate(a, 'a');
-	if (ft_find_minor(a) == 3)
+	if (ft_find_pos_minor(a) == 3)
 		reverse_rotate(a, 'a');
-	if (ft_find_minor(a) == 4)
+	if (ft_find_pos_minor(a) == 4)
 		reverse_rotate(a, 'a');
 	push(a, b, 'b');
-	if (ft_find_minor(a) == 1)
+	if (ft_find_pos_minor(a) == 1)
 		swap(a, 'a');
-	else if (ft_find_minor(a) == 2)
+	else if (ft_find_pos_minor(a) == 2)
 		reverse_rotate(a, 'a');
-	if (ft_find_minor(a) == 3)
+	if (ft_find_pos_minor(a) == 3)
 		reverse_rotate(a, 'a');
 	if (!ft_issorted(*a))
 	{

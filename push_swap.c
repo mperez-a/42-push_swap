@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:34:41 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/18 17:36:16 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:15:41 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	push_swap(int argc, char **argv)
 		sort_small(&stack_a, elements);
 	else if (!ft_issorted(stack_a) && elements <= 5)
 		sort_four_five(&stack_a, &stack_b, elements);
-	else if (!ft_issorted(stack_a) && elements <= 100)
-		sort_nums(&stack_a, &stack_b);
+	else if (!ft_issorted(stack_a) && elements > 5)
+		sort_nums(&stack_a, &stack_b, elements);
 }
 
 int	main(int argc, char **argv)
