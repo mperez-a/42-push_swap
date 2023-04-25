@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:43:54 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/20 18:39:51 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:17:19 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-//utils
+//main
 void			push_swap(int argc, char **args);
-char			**copy_args(int argc, char **argv);
+
+//utils
 int				ft_numelements(t_stack **a);
 int				ft_issorted(t_stack *a);
 int				check_input(char **args);
@@ -57,11 +58,8 @@ void			mostra(t_stack **a);
 
 //moves
 void			swap_mov(t_stack **stack);
-void			ss_mov(t_stack **stack_a, t_stack **stack_b);
 void			rotate_mov(t_stack **stack);
-void			rr(t_stack **stack_a, t_stack **stack_b);
 void			reverse_rotate_mov(t_stack **stack);
-void			rrr(t_stack **stack_a, t_stack **stack_b);
 void			push_mov(t_stack **src, t_stack **dst);
 
 //sorts
@@ -71,13 +69,15 @@ void			sort_four(t_stack **a, t_stack **b);
 void			sort_five(t_stack **a, t_stack **b);
 void			sort_four_five(t_stack **a, t_stack **b, int elements);
 void			sort_big(t_stack **stack_a, t_stack **stack_b, int chunks, int size);
-void 			sort_chunk(t_stack **a, t_stack **b, int chunk_size);
 void			sort_nums(t_stack **stack_a, t_stack **stack_b, int size);
 
 //exec movements
 void			swap(t_stack **stack, char c);
+void			ss(t_stack **stack_a, t_stack **stack_b);
 void			reverse_rotate(t_stack **stack, char c);
+void			rr(t_stack **stack_a, t_stack **stack_b);
 void			rotate(t_stack **stack, char c);
+void			rrr(t_stack **stack_a, t_stack **stack_b);
 void			push(t_stack **src, t_stack **dst, char c);
 
 #endif

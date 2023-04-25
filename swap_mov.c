@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_mov2.c                                        :+:      :+:    :+:   */
+/*   swap_mov.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mperez-a <mperez-a@student.42barcel>       +#+  +:+       +#+        */
+/*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:56:32 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/06 16:56:35 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:16:14 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	swap(t_stack **stack, char c)
 	ft_printf("s%c\n", c);
 }
 
-void	ss_mov(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap_mov(stack_a);
 	swap_mov(stack_b);
