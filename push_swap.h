@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:43:54 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/25 18:17:19 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:03:42 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void			sort_five(t_stack **a, t_stack **b);
 void			sort_four_five(t_stack **a, t_stack **b, int elements);
 void			sort_big(t_stack **stack_a, t_stack **stack_b, int chunks, int size);
 void			sort_nums(t_stack **stack_a, t_stack **stack_b, int size);
+
+void			move_chunk(t_stack **stack_a, t_stack **stack_b, int chunks);
 
 //exec movements
 void			swap(t_stack **stack, char c);
