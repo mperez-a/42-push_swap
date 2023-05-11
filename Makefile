@@ -6,7 +6,7 @@
 #    By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 17:25:07 by mperez-a          #+#    #+#              #
-#    Updated: 2023/04/18 17:35:39 by mperez-a         ###   ########.fr        #
+#    Updated: 2023/05/10 10:02:55 by mperez-a         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = push_swap
 CFLAGS = -Wextra -Werror -Wall
 SRC = push_swap.c check_input.c utils.c lst_utils.c sort_small.c \
 		swap_mov.c rotate_mov.c reverse_rotate_mov.c push_mov.c \
-		sort_big.c sort_nums.c
+		sort_big.c sort_nums.c put_index.c ft_free.c
 OBJ = $(SRC:.c=.o)
 DEP = $(OBJ:.o=.d)
 RM = rm -f

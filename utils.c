@@ -6,18 +6,11 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:59:41 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/05/02 20:35:31 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/10 09:38:34 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*void	ft_error(t_stack stack_a)
-{
-	ft_printf("Error\n");
-	ft_free(stack_a);
-	exit(-1);
-}*/
 
 long long int	ft_atol(char *str)
 {
@@ -66,7 +59,7 @@ int	ft_find_pos_minor(t_stack **stack_b)
 	return (pos);
 }
 
-int	ft_find_biggest(t_stack **a)
+int	ft_find_pos_biggest(t_stack **a)
 {
 	t_stack	*tmp;
 	int		biggest;
@@ -86,45 +79,42 @@ int	ft_find_biggest(t_stack **a)
 	return (pos);
 }
 
-void	ft_update_position(t_stack **stack)
+int	ft_find_index_minor(t_stack **stack_a)
 {
 	t_stack	*tmp;
-	int		position;
+	int		minor;
+	int		index;
 
-	tmp = *stack;
-	position = 0;
-	while (tmp)
+	tmp = *stack_a;
+	minor = tmp->content;
+	index = tmp->index;
+	while (tmp->next)
 	{
-		tmp->pos = position;
-		position++;
 		tmp = tmp->next;
+		if (minor <= tmp->content)
+			continue ;
+		minor = tmp->content;
+		index = tmp->index;
 	}
+	return (index);
 }
 
-void	ft_put_index(t_stack **stack)
+int	ft_find_index_biggest(t_stack **a)
 {
-	int		min_content;
+	t_stack	*tmp;
+	int		biggest;
 	int		index;
-	t_stack	*current;
 
-	index = 1;
-	while (index <= ft_numelements(stack))
+	tmp = *a;
+	biggest = tmp->content;
+	index = tmp->index;
+	while (tmp->next)
 	{
-		min_content = INT_MAX;
-		current = *stack;
-		while (current)
-		{
-			if (current->content < min_content && current->index == 0)
-				min_content = current->content;
-			current = current->next;
-		}
-		current = *stack;
-		while (current)
-		{
-			if (current->content == min_content && current->index == 0)
-				current->index = index;
-			current = current->next;
-		}
-		index++;
+		tmp = tmp->next;
+		if (biggest > tmp->content)
+			continue ;
+		biggest = tmp->content;
+		index = tmp->index;
 	}
+	return (index);
 }

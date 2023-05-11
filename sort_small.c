@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:46:15 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/20 16:54:25 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:30:07 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	sort_three(t_stack **stack)
 		return ;
 	if ((*stack)->content < (*stack)->next->content)
 		reverse_rotate(stack, 'a');
-	else if (ft_find_biggest(stack) == 0)
+	else if (ft_find_pos_biggest(stack) == 0)
 		rotate(stack, 'a');
 	if (!ft_issorted(*stack))
 		swap(stack, 'a');

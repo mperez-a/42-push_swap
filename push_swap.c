@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:34:41 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/04/26 11:53:15 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:45:32 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	mostra(t_stack **a)
 	while (tmp)
 	{
 		printf("\ncontenido = %d\n", tmp->content);
-		printf("posicion =  %d\n", tmp->pos);
-		printf("next = %p\n", tmp->next);
+		//printf("posicion =  %d\n", tmp->pos);
+		//printf("next = %p\n", tmp->next);
 		printf("index = %d\n", tmp->index);
 		tmp = tmp->next;
 	}
@@ -31,7 +31,7 @@ void	mostra(t_stack **a)
 	}
 }
 
-t_stack	*fill_stacka(t_stack *stack_a, int argc, char **argv)
+t_stack	*fill_stack_a(t_stack *stack_a, int argc, char **argv)
 {
 	t_stack	*node;
 	int		n;
@@ -57,7 +57,7 @@ void	push_swap(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	stack_a = fill_stacka(stack_a, argc, argv);
+	stack_a = fill_stack_a(stack_a, argc, argv);
 	elements = ft_numelements(&stack_a);
 	ft_put_index(&stack_a);
 	if (!ft_issorted(stack_a) && (elements == 2 || elements == 3))
@@ -65,20 +65,25 @@ void	push_swap(int argc, char **argv)
 	else if (!ft_issorted(stack_a) && elements <= 5)
 		sort_four_five(&stack_a, &stack_b, elements);
 	else if (!ft_issorted(stack_a) && elements > 5)
-		sort_nums(&stack_a, &stack_b, elements);
+		sort_nums(&stack_a, &stack_b);
+	ft_free_stack(&stack_a);
+	ft_free_stack(&stack_b);
 }
 
 int	main(int argc, char **argv)
 {
 	if (argc > 1)
 	{
-		if (argc == 2)
+		if (argc >= 2)
 		{
-			ft_putstr_fd("Error\n", 2);
-			exit(-1);
-		}
-		else if (argc > 2)
-		{
+			if (argc == 2)
+			{
+				if (argv[1][0] == '\0')
+				{
+					ft_putstr_fd("Error\n", 2);
+					exit(-1);
+				}
+			}
 			if (!check_input(argv))
 			{
 				ft_putstr_fd("Error\n", 2);

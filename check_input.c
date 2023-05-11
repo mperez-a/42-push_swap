@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:35:38 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/03/23 17:08:53 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:22:21 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_isnum(char *str)
 	{
 		while (ft_isspace(str[i]))
 			i++;
-		if (str[0] == '-' || str[0] == '+')
+		if ((i == 0) && (str[i] == '-' || str[i] == '+'))
 			i++;
 		if (str[i] == '\0')
 			return (0);
@@ -73,11 +73,11 @@ int	ft_numelements(t_stack **a)
 	int		elements;
 
 	tmp = *a;
-	elements = 1;
-	while (tmp->next)
+	elements = 0;
+	while (tmp)
 	{
-		elements++;
 		tmp = tmp->next;
+		elements++;
 	}
 	return (elements);
 }

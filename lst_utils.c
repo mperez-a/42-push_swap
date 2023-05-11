@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 15:17:38 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/02/18 14:35:35 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/10 10:07:25 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*ft_newlst(int pos, int content)
 	if (!node)
 		return (NULL);
 	node->pos = pos - 1;
+	node->index = -1;
 	node->content = content;
 	node->next = NULL;
 	return (node);
