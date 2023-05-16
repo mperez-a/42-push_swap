@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:43:54 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/05/10 14:51:29 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/12 16:03:33 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,17 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+typedef struct s_init
+{
+	int				elements_counter;
+	int				counter;
+	int				start;
+	int				chunk_size;
+	int				multiply_size;
+}					t_init;
+
 //free
 void			ft_free_stack(t_stack **stackx);
-void			ft_free_args(int numargs, char **args);
 
 //main
 void			push_swap(int argc, char **args);
@@ -55,9 +63,6 @@ t_stack			*ft_newlst(int pos, int content);
 t_stack			*ft_lastlst(t_stack *lst);
 t_stack			*fill_stack_a(t_stack *stack_a, int argc, char **args);
 void			ft_addlst_back(t_stack **lst, t_stack *new);
-
-//print
-void			mostra(t_stack **a);
 
 //moves
 void			swap_mov(t_stack **stack);

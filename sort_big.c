@@ -6,7 +6,7 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 16:28:29 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/05/10 13:44:21 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:55:20 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,44 +25,41 @@ void	sort_big(t_stack **stack_a, t_stack **stack_b, int chunks)
 		len = ft_numelements(stack_b) + 1;
 		len--;
 	}
-	//mostra(stack_a);
 }
 
-void	move_chunk(t_stack **stack_a, t_stack **stack_b, int chunks)
+void	init_variables(t_stack **stack_a, t_init *i_var, int chunks)
 {
-	int	chunk_size;
-	int	multiply_size;
-	int	elements_counter;
-	int	start;
-	int	counter;
+	i_var->elements_counter = 0;
+	i_var->counter = 1;
+	i_var->start = 0;
+	i_var->chunk_size = ft_numelements(stack_a) / chunks;
+	i_var->multiply_size = i_var->chunk_size;
+}
 
-	chunk_size = ft_numelements(stack_a) / chunks;
-	multiply_size = chunk_size;
-	elements_counter = 0;
-	start = 0;
-	counter = 1;
-	if (ft_issorted(*stack_a))
-		return ;
-	while (counter++ <= chunks)
+void	move_chunk(t_stack **sa, t_stack **sb, int chunks)
+{
+	t_init	i_var;
+
+	init_variables(sa, &i_var, chunks);
+	while (i_var.counter++ <= chunks)
 	{
-		while (elements_counter < chunk_size)
+		while (i_var.elements_counter < i_var.chunk_size)
 		{
-			if ((*stack_a)->index < chunk_size)
+			if ((*sa)->index < i_var.chunk_size)
 			{
-				push(stack_a, stack_b, 'b');
-				if (((*stack_b)->index) <= ((chunk_size + start) / 2))
-					rotate(stack_b, 'b');
-				elements_counter++;
+				push(sa, sb, 'b');
+				if (((*sb)->index) <= ((i_var.chunk_size + i_var.start) / 2))
+					rotate(sb, 'b');
+				i_var.elements_counter++;
 			}
 			else
-				rotate(stack_a, 'a');
+				rotate(sa, 'a');
 		}
-		ft_put_index(stack_a);
-		start = chunk_size;
-		chunk_size = chunk_size + multiply_size;
+		i_var.start = i_var.chunk_size;
+		i_var.chunk_size = i_var.chunk_size + i_var.multiply_size;
 	}
-	while (ft_numelements(stack_a))
-		push(stack_a, stack_b, 'b');
+	while (ft_numelements(sa))
+		push(sa, sb, 'b');
 }
 
 void	put_max_in_top(t_stack **stack_b, int size)
@@ -76,7 +73,7 @@ void	put_max_in_top(t_stack **stack_b, int size)
 		return ;
 	tmp = *stack_b;
 	max_pos = ft_find_pos_biggest(stack_b);
-	while (tmp->next)
+	while (tmp->next->index != max)
 	{
 		size = ft_numelements(stack_b);
 		if (tmp->index == max)

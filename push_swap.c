@@ -6,30 +6,11 @@
 /*   By: mperez-a <mperez-a@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:34:41 by mperez-a          #+#    #+#             */
-/*   Updated: 2023/05/10 15:45:32 by mperez-a         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:46:54 by mperez-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	mostra(t_stack **a)
-{
-	t_stack	*tmp;
-
-	tmp = *a;
-	while (tmp)
-	{
-		printf("\ncontenido = %d\n", tmp->content);
-		//printf("posicion =  %d\n", tmp->pos);
-		//printf("next = %p\n", tmp->next);
-		printf("index = %d\n", tmp->index);
-		tmp = tmp->next;
-	}
-	if (tmp == NULL)
-	{
-		printf("\nHas llegado al final de la lista\n");
-	}
-}
 
 t_stack	*fill_stack_a(t_stack *stack_a, int argc, char **argv)
 {
